@@ -11,14 +11,14 @@
 @implementation FrameByFrameAnimation
 
 @synthesize fa_delegate;
-@synthesize animationImageView = _animationImageView;
+@synthesize animationImageView  = _animationImageView;
 
-NSInteger _animationImageX       = ANIM_IMAGE_X;
-NSInteger _animationImageY       = ANIM_IMAGE_Y;
-NSInteger _animationImageWidth   = ANIM_IMAGE_WIDTH;
-NSInteger _animationImageHeight  = ANIM_IMAGE_HEIGHT;
-CGFloat   _animationFps          = ANIM_FPS;
-NSString *_animationImageExt     = ANIM_IMAGE_EXT;
+NSInteger _animationImageX      = ANIM_IMAGE_X;
+NSInteger _animationImageY      = ANIM_IMAGE_Y;
+NSInteger _animationImageWidth  = ANIM_IMAGE_WIDTH;
+NSInteger _animationImageHeight = ANIM_IMAGE_HEIGHT;
+CGFloat   _animationFps         = ANIM_FPS;
+NSString *_animationImageExt    = ANIM_IMAGE_EXT;
 NSString *_animationType;
 
 //アニメーション設定
@@ -98,7 +98,10 @@ NSString *_animationType;
 //レクタングルリセット
 - (void)resetRectangle
 {
-    [self setRectangle:0 :0 :ANIM_IMAGE_WIDTH :ANIM_IMAGE_HEIGHT];
+    [self setRectangle:ANIM_IMAGE_X
+                      :ANIM_IMAGE_Y
+                      :ANIM_IMAGE_WIDTH
+                      :ANIM_IMAGE_HEIGHT];
 }
 
 //アニメーション秒数を取得
