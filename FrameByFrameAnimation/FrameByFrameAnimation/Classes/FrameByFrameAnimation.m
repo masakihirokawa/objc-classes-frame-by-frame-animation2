@@ -87,21 +87,21 @@ NSString *_animationType;
 }
 
 //レクタングル指定
-- (void)setRectangle:(NSInteger)x :(NSInteger)y :(NSInteger)width :(NSInteger)height
+- (void)setRectangle:(CGRect)rect
 {
-    _animationImageX = x;
-    _animationImageY = y;
-    _animationImageWidth = width;
-    _animationImageHeight = height;
+    _animationImageX = rect.origin.x;
+    _animationImageY = rect.origin.y;
+    _animationImageWidth = rect.size.width;
+    _animationImageHeight = rect.size.height;
 }
 
 //レクタングルリセット
 - (void)resetRectangle
 {
-    [self setRectangle:ANIM_IMAGE_X
-                      :ANIM_IMAGE_Y
-                      :ANIM_IMAGE_WIDTH
-                      :ANIM_IMAGE_HEIGHT];
+    [self setRectangle:CGRectMake(ANIM_IMAGE_X,
+                                  ANIM_IMAGE_Y,
+                                  ANIM_IMAGE_WIDTH,
+                                  ANIM_IMAGE_HEIGHT)];
 }
 
 //アニメーション秒数を取得

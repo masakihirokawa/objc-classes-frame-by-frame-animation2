@@ -32,10 +32,10 @@
     [fbfAnimation setFps:24.0f];
     
     //アニメーション画像のレクタングル指定 (指定がない場合は W320*H480pxになります)
-    [fbfAnimation setRectangle:self.view.center.x - (IMAGE_WIDTH / 2)
-                              :self.view.center.y - (IMAGE_HEIGHT / 2)
-                              :IMAGE_WIDTH
-                              :IMAGE_HEIGHT];
+    [fbfAnimation setRectangle:CGRectMake(self.view.center.x - (IMAGE_WIDTH / 2),
+                                          self.view.center.y - (IMAGE_HEIGHT / 2),
+                                          IMAGE_WIDTH,
+                                          IMAGE_HEIGHT)];
     
     //クラス側のデリゲートに渡す
     fbfAnimation.fa_delegate = (id)self;

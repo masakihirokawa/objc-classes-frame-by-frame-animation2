@@ -28,7 +28,7 @@
 - (void)setAnimating:(NSString *)animationType :(NSInteger)animationImageNum :(NSString *)animationImagePrefix :(NSInteger)animationRepeatNum;
 - (void)setFps:(float)fps;
 - (void)resetFps;
-- (void)setRectangle:(NSInteger)x :(NSInteger)y :(NSInteger)width :(NSInteger)height;
+- (void)setRectangle:(CGRect)rect;
 - (void)resetRectangle;
 
 @end
