@@ -63,12 +63,6 @@
     
     //ステージに追加
     [self.view addSubview:[fbfAnimation animationImageView]];
-    
-    //fpsリセット (変更した場合のみ)
-    [fbfAnimation resetFps];
-    
-    //レクタングル指定を元に戻す (変更した場合のみ)
-    [fbfAnimation resetRectangle];
 }
 
 @end

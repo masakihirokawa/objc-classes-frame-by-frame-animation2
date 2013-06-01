@@ -25,6 +25,7 @@
 @property (nonatomic, assign) id<FrameByFrameAnimationDelegate> fa_delegate;
 @property (nonatomic, retain) UIImageView *animationImageView;
 
+- (id)init;
 - (void)setAnimating:(NSString *)animationType :(NSInteger)animationImageNum :(NSString *)animationImagePrefix :(NSInteger)animationRepeatNum;
 - (void)setFps:(float)fps;
 - (void)resetFps;

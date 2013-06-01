@@ -21,6 +21,16 @@ CGFloat   _animationFps         = ANIM_FPS;
 NSString *_animationImageExt    = ANIM_IMAGE_EXT;
 NSString *_animationType;
 
+//初期化
+- (id)init
+{
+    if(self == [super init]) {
+        [self resetFps];
+        [self resetRectangle];
+    }
+    return self;
+}
+
 //アニメーション設定
 - (void)setAnimating:(NSString *)animationType
                     :(NSInteger)animationImageNum
@@ -37,8 +47,8 @@ NSString *_animationType;
                                                                         _animationImageHeight)];
     
     //最後の画像が消えないようにする
-    _animationImageView.image = [FrameByFrameAnimation getUIImageFromResources:[self animationImageName:animationImagePrefix:animationImageNum]
-                                                                           ext:_animationImageExt];
+    _animationImageView.image = [self getUIImageFromResources:[self animationImageName:animationImagePrefix:animationImageNum]
+                                                          ext:_animationImageExt];
     
     //画像をタップ可能にする
     _animationImageView.userInteractionEnabled = YES;
@@ -126,13 +136,13 @@ NSString *_animationType;
         NSString *imageTitle = [animationImageNameList objectAtIndex:i];
         
         //画像の配列に画像ファイルを追加
-        [imageArray addObject:[FrameByFrameAnimation getUIImageFromResources:imageTitle
-                                                                         ext:_animationImageExt]];
+        [imageArray addObject:[self getUIImageFromResources:imageTitle
+                                                        ext:_animationImageExt]];
     }
     return (imageArray);
 }
 
-+ (UIImage *)getUIImageFromResources:(NSString*)fileName ext:(NSString*)ext
+- (UIImage *)getUIImageFromResources:(NSString*)fileName ext:(NSString*)ext
 {
 	NSString *path = [[NSBundle mainBundle] pathForResource:fileName ofType:ext];
 	UIImage *img = [[UIImage alloc] initWithContentsOfFile:path];
